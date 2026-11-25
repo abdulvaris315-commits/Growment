@@ -1,0 +1,237 @@
+@import 'lenis/dist/lenis.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    scroll-behavior: auto !important;
+    background-color: #000000;
+    color: #FFFFFF;
+  }
+
+  body {
+    background-color: #000000;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #D4962A;
+    color: #000000;
+  }
+
+  #hero,
+  #mission-vision,
+  #capabilities,
+  #projects,
+  #reviews,
+  #contact {
+    scroll-margin-top: 72px;
+  }
+}
+
+@layer utilities {
+  /* OriginOS Flagship Typography Metrics */
+  .text-originos-hero {
+    font-size: clamp(2.75rem, 5.8vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+  }
+
+  .text-originos-title {
+    font-size: clamp(2.2rem, 4.4vw, 4rem);
+    font-weight: 600;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .text-originos-subtitle {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .text-originos-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+
+  /* Liquid Glass Refraction - Light Sections (#F5F5F7) */
+  .glass-light {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1), 0 20px 40px -15px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Liquid Glass Refraction - Dark Sections (#000000) */
+  .glass-dark {
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.20), 0 25px 50px -15px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Subtle Liquid White-Glass Frame */
+  .glass-subtle-dark {
+    background-color: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Glass Action Pills */
+  .glass-pill-light {
+    background-color: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 1);
+  }
+
+  .glass-pill-dark {
+    background-color: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.20);
+  }
+
+  /* OriginOS Flagship Device Mockup Frame */
+  .device-frame {
+    border: 5px solid #28282C;
+    border-radius: 46px;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.95), 
+                inset 0 0 16px rgba(255, 255, 255, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.15);
+    background: #0D0D10;
+  }
+
+  .device-screen {
+    border-radius: 40px;
+    overflow: hidden;
+  }
+
+  /* Hide scrollbar for Chrome, Safari, Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* Interactive Card Hover Utilities */
+.interactive-card {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease, background-color 0.35s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Lenis Recommended Root Setup */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* --- 100% TRANSPARENT LIQUID GLASS HOVER CURSOR --- */
+.liquid-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* 100% Transparent Glass Refraction - Zero Color Tint */
+  background: transparent !important;
+  backdrop-filter: blur(4px) saturate(140%) contrast(115%);
+  -webkit-backdrop-filter: blur(4px) saturate(140%) contrast(115%);
+
+  /* Specular Edge Highlights to Give 3D Glass Thickness */
+  box-shadow: 
+    inset 0 0 8px rgba(255, 255, 255, 0.6),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 6px rgba(0, 0, 0, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.15);
+
+  /* Liquid Morphing Animation */
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: liquidMorph 5s ease-in-out infinite;
+  
+  /* Smooth Scaling on Hover */
+  transition: width 0.3s ease, height 0.3s ease, backdrop-filter 0.3s ease, -webkit-backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, border-radius;
+}
+
+/* Custom sleek scrollbar for modal */
+.custom-modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 9999px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+}
+.custom-modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #D4962A;
+}
+
+@keyframes liquidMorph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  33% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  66% {
+    border-radius: 50% 60% 30% 60% / 30% 40% 70% 50%;
+  }
+}
